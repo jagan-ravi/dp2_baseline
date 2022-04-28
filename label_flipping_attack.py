@@ -3,15 +3,15 @@ from server import run_exp
 from functions import round_worker
 
 if __name__ == '__main__':
-    START_EXP_IDX = 901 ####Always Start with oned Index eg:3001
-    NUM_EXP = 1
+    START_EXP_IDX = 101 ####Always Start with oned Index eg:3001
+    NUM_EXP = 10
     NUM_POISONED_WORKERS=0
     NUM_WORKERS_PER_ROUND=1
     NUM_OF_REPLACEMENT=0
     LABELS_TO_REPLACE=[]
     LABELS_TO_REPLACE_WITH=[]
     PERCENTAGE_OF_REPLACEMENT=0
-    ROUNDS=2
+    ROUNDS=150
     NUM_WORKERS=1
     RANDOM_WORKERS=round_worker(ROUNDS,NUM_WORKERS,NUM_WORKERS_PER_ROUND)
 

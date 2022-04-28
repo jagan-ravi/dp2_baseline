@@ -1,5 +1,4 @@
 from ast import arg
-from dataclasses import KW_ONLY
 from loguru import logger
 from federated_learning.arguments import Arguments
 from federated_learning.utils import generate_data_loaders_from_distributed_dataset
@@ -73,9 +72,10 @@ def train_subset_of_clients(epoch, args, clients,KWARGS,distributed_train_datase
         # args.get_logger().info("Updating parameters on client #{}", str(client.get_client_index()))
         # client.update_nn_parameters(new_nn_params)
         acc_train,_=client.train(epoch,train_data_loaders[client_idx])
-        acc_test,_,_,recall_test=0,0,0,[0]
         if epoch==KWARGS["ROUNDS"]:
             acc_test,_,_,recall_test=client.test()
+        else:
+            acc_test,_,_,recall_test=0,0,0,[0]
         trainAccuracyOfAll.append(acc_train)
         testAccuracyOfAll.append(acc_test)
         testRecallOfAll.append(recall_test)
