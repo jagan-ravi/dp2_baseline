@@ -1,10 +1,11 @@
 from federated_learning.worker_selection import RandomSelectionStrategy
 from server import run_exp
 from functions import round_worker
-
+import time
 if __name__ == '__main__':
-    START_EXP_IDX = 101 ####Always Start with oned Index eg:3001
-    NUM_EXP = 10
+    start=time.time()
+    START_EXP_IDX = 201 ####Always Start with oned Index eg:3001
+    NUM_EXP = 1
     NUM_POISONED_WORKERS=0
     NUM_WORKERS_PER_ROUND=1
     NUM_OF_REPLACEMENT=0
@@ -30,3 +31,4 @@ if __name__ == '__main__':
     }
     for experiment_id in range(START_EXP_IDX, START_EXP_IDX + NUM_EXP):
         run_exp(KWARGS, RandomSelectionStrategy(), experiment_id)
+    print(time.time()-start)
